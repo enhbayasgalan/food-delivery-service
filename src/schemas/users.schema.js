@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { Users } from "./food.shema";
+
 
 const usersSchema = new mongoose.Schema({
     email : {type : String, require : true},

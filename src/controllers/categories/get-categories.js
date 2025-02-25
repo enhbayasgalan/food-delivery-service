@@ -1,4 +1,4 @@
-import { Category } from "../../schemas/categories.schema"
+import { Category } from "../../schemas/categories.schema.js"
 
 export const getCategories = async (req, res) => {
     try {
