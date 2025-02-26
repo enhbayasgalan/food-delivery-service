@@ -2,7 +2,7 @@
 import mongoose from "mongoose";
 const foodOrderItemSchema = new mongoose.Schema({
     food: {type: mongoose.Types.ObjectId, ref : "foods"},
-    quantity : {type : String, require : true},
+    quantity : {type : Number, require : true},
 });
 
-export const Users = mongoose.model("oodOrderItemSchema", foodOrderItemSchema);
+export const Users = mongoose.model("foodOrderItemSchema", foodOrderItemSchema);

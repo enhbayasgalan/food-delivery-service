@@ -11,4 +11,4 @@ const foodOrderSchema = new mongoose.Schema({
     
 });
 
-export const Users = mongoose.model("foodOrderItemSchema", foodOrderSchema);
+export const Order = mongoose.model("foodOrderSchema", foodOrderSchema);

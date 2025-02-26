@@ -8,6 +8,11 @@ export const  createUser = async (req , res) => {
         res.send("email invalid").status(400)
     }
     console.log(email);
+
+    if (!password) {
+        res.send("password invalid").status(400)
+    }
+    console.log(password);
     
     try{
    

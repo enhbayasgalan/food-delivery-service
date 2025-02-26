@@ -1,11 +1,12 @@
 import { Category } from "../../schemas/categories.schema.js"
 
 export const postCategories = async (req, res) => {
+    const {categoryName} =  req.body
     try {
-        const {categoryName} = await req.body
+        
         if (categoryName) {
             if (categoryName) {
-                const result = new Category.find({categoryName});
+                const result = new Category({categoryName:categoryName});
                 await result.save()
                 res.status(200).send("category successfully")
             } else {
@@ -15,7 +16,6 @@ export const postCategories = async (req, res) => {
             res.send("category good")
         }
     } catch (error) {
-        console.log(error);
-        
+        console.log(error); 
     }
 }
