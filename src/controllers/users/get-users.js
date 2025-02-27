@@ -1,4 +1,5 @@
-import { Users } from "../../schemas/foodOrderItem.schema.js";
+import { Users } from "../../schemas/users.schema.js";
+
 
 
 export const getUsers = async (req, res) => {

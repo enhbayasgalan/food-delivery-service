@@ -6,7 +6,7 @@ export const deleteFoods = async (req, res) => {
     const {foodName} = req.body
 
     if (!foodName) {
-        res.status(400).send("ID is required to delete an item")
+        res.status(400).send("FoodName is required to delete an item")
     }
 
     try {
