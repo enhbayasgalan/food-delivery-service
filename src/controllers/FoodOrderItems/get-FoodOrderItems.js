@@ -1,6 +1,6 @@
 import { FoodOrderItems } from "../../schemas/foodOrderItem.schema.js"
 
-export const getFoodOrderItems = async () => {
+export const getFoodOrderItems = async (req, res) => {
     try {
         const foodOrderItem = await FoodOrderItems.find({user: req.userId})
         res.status(200).send(foodOrderItem)
