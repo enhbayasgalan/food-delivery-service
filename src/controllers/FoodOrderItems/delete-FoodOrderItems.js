@@ -10,7 +10,7 @@ export const deleteFoodItems = async (req,res) => {
         const deleteFoodItem = await FoodOrderItems.findOneAndDelete({quantity})
 
         if (!deleteFoodItem) {
-            res.status(404).send("FoodItems items bot found")
+            res.status(404).send("FoodItems items not found")
         }
 
         res.status(200).send("delete fooditems")
