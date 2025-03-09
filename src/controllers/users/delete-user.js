@@ -1,4 +1,4 @@
-import { Users } from "../../schemas/users.schema"
+import { Users } from "../../schemas/users.schema.js"
 
 export const deleteUser = async (req, res) => {
     const {email} = req.body
