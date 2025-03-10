@@ -3,6 +3,8 @@ import { Category } from "../../schemas/categories.schema.js"
 export const getCategories = async (req, res) => {
     try {
         const categories = await Category.find()
+        console.log(categories);
+        
         res.status(200).send(categories)
     } catch (error) {
         res.status(500).send("Not Fail")

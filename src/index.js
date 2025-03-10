@@ -17,6 +17,7 @@ import { foodOrderItems } from "./routes/FoodOrderItems.routes.js";
 
 const app = express()
 const port = 5000;
+app.use(cors())
 
 app.use(express.json())
 
@@ -26,7 +27,7 @@ app.use('/orderItems', foodOrderItems)
 app.use('/user', userRouter);
 app.use('/category', categoryRouter)
 
-app.use(cors())
+
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
