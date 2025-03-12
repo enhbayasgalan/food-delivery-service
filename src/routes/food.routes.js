@@ -7,7 +7,7 @@ import {  deleteFoods} from "../controllers/foods/delete-foods.js";
 
 export const foodRouter = Router(); 
 
-foodRouter.get('/', getFoods)
+foodRouter.get('/:category', getFoods)
 foodRouter.post('/', postFoods)
 // UPDATE FOOD ITEM
 foodRouter.put('/', putFoods)
