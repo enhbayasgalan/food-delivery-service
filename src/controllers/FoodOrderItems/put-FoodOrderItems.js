@@ -2,7 +2,6 @@ import { FoodOrderItems } from "../../schemas/foodOrderItem.schema.js"
 
 export const putFoodOrderItems = async (req, res) => {
     try {
-        const {quanity, user} = req.body
         const {id} = req.params
 
         const {updateItems} = FoodOrderItems.findById({id});

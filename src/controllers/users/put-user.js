@@ -6,7 +6,7 @@ export const putUsers = async (req, res) => {
     try {
         const putusers = await Users.findOneAndUpdate(
             {address: address},
-            {new: true, runValidators: true }
+            {new: true}
         )
 
         if (putusers) {
