@@ -1,7 +1,7 @@
 import { json } from "express";
 import { Users } from "../../schemas/users.schema.js";
 import bcrypt from "bcrypt";
-import jsonwebtoken from "jsonwebtoken"
+import jsonwebtoken from 'jsonwebtoken'
 
 export const checkpassword = async (req, res) => {
   try {
@@ -18,7 +18,7 @@ export const checkpassword = async (req, res) => {
     if (!passwordCorrect) {
         return res.status(400).send("Wrong password or email")
     }
-    const token = jsonwebtoken.sign({user:user}, process.env.JWT_TOKEN_SECRET_KEY, {expiresIn: "8h"})
+    const token = jsonwebtoken.sign({user:user}, process.env.JWT_TOKEN_SECRET_KEY,)
     console.log(token);
     
     res.status(token).status(200)
