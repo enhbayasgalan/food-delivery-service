@@ -6,24 +6,30 @@ import jsonwebtoken from 'jsonwebtoken'
 export const checkpassword = async (req, res) => {
   try {
     const { email, password } = req.body;
-    const user = await Users.findOne({email});
+    const user = await Users.findOne({email: email});
 
     if (!user) {
-        return res.status(400).send("user not found");
+         res.send("user not found").status(400);
     }
     console.log(user);
 
-    const passwordCorrect = await bcrypt.compare(password, user.hashedPassword);
+    const passwordCorrect = await bcrypt.compare(password, user.password);
 
+    console.log(passwordCorrect);
+    
     if (!passwordCorrect) {
-        return res.status(400).send("Wrong password or email")
-    }
-    const token = jsonwebtoken.sign({user:user}, process.env.JWT_TOKEN_SECRET_KEY,)
+       res.send("Wrong password").status(400)
+    }else{
+
+    console.log(process.env.JWT_TOKEN_SECRET_KEY);
+    
+    const token =  jsonwebtoken.sign({userId:user._id}, process.env.JWT_TOKEN_SECRET_KEY,)
     console.log(token);
     
-    res.status(token).status(200)
+    res.send(token).status(200)
+    }
   } catch (error) {
     console.error(error);
-    return res.status(500).json({message: "interval server error"})
+     res.send(500).json({message: "interval server error"})
   }
 };

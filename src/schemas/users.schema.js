@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { stringify } from "uuid";
 
 const usersSchema = new mongoose.Schema({
-  email: { type: String, require: true },
+  email: { type: String, require: true, unique: true },
   password: { type: String, require: true },
   phoneNumber: { type: String },
   address: { type: String },

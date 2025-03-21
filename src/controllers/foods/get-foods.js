@@ -2,7 +2,6 @@ import { Foods } from "../../schemas/food.shema.js";
 
 export const getFoods = async (req, res) => {
   const {category} = req.params
-  console.log(category);
   
   try {
     const foods =await Foods.find({category:category});
