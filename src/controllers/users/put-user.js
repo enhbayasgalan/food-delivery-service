@@ -2,9 +2,11 @@ import { Users } from "../../schemas/users.schema.js"
 
 export const putUsers = async (req, res) => {
     const {address} = req.body
-
+    console.log(req.userId);
+    
     try {
         const putusers = await Users.findOneAndUpdate(
+            {_id : req.userId},
             {address: address},
             {new: true}
         )

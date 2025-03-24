@@ -7,9 +7,9 @@ export const authenticationJWT = (req, res, next) => {
   if (!token) return res.status(401).send("Access"); 
   try {    
     const decoded = jsonwebtoken.verify(token, process.env.JWT_TOKEN_SECRET_KEY);
-    req.userId = decoded.UserId;
-   
-    
+    req.userId = decoded.userId;
+    console.log(decoded);
+     
     next();
   } catch (error) {
     res.status(401).send({ error: "Invalid token" });

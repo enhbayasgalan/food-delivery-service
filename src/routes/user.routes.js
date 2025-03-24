@@ -7,14 +7,20 @@ import { deleteUser } from "../controllers/users/delete-user.js";
 import { checkpassword } from "../controllers/login/post-login.js";
 import { getAddress } from "../controllers/users/getAdderess.js";
 
+import { authenticationJWT } from "../middleware/user/jsonwebtoken.js";
+
+
+
+
 // import { Password } from "../controllers/login/get-login.js";
 
 export const userRouter = express.Router(); 
 userRouter.get('/', getUsers)
 userRouter.post('/', createUser)
-userRouter.put('/', putUsers)
+userRouter.put('/address',authenticationJWT, putUsers)
 userRouter.delete('/', deleteUser)
 userRouter.post('/login', checkpassword)
 userRouter.get('/address', getAddress)
+
 // userRouter.delete('/', deleteElIndex)
 // userRouter.get('/login', Password)
