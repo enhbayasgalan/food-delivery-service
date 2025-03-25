@@ -4,9 +4,11 @@ import { postFoodOrderItems } from "../controllers/FoodOrderItems/post-FoodsOrde
 import { putFoodOrderItems } from "../controllers/FoodOrderItems/put-FoodOrderItems.js";
 import { deleteFoodItems } from "../controllers/FoodOrderItems/delete-FoodOrderItems.js";
 
+
+
 export const foodOrderItems = Router(); 
 
 foodOrderItems.get('/', getFoodOrderItems)
 foodOrderItems.post('/:id', postFoodOrderItems)
 foodOrderItems.put('/', putFoodOrderItems)
-foodOrderItems.delete('/',deleteFoodItems)
+foodOrderItems.delete('/',  deleteFoodItems)

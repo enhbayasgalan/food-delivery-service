@@ -5,6 +5,6 @@ export const getAddress = async (req, res) => {
         const user = await Users.findById({_id : req.userId})
         res.status(200).send(user.address)
     } catch (error) {
-        res.status(500).send("getAddress")
+        res.status(500).send("error")
     }
 }
