@@ -6,10 +6,12 @@ import { putOrders } from "../controllers/orders/put-Orders.js";
 import { deleteFoods } from "../controllers/foods/delete-foods.js";
 import { deleteOrders } from "../controllers/orders/delete-Orders.js";
 import { authenticationJWT } from "../middleware/user/jsonwebtoken.js";
+import { getAllOrders } from "../controllers/orders/get-All-Order.js";
 
 export const orderRouter = Router(); 
 
-orderRouter.get('/', getOrders)
+orderRouter.get('/',authenticationJWT, getOrders)
 orderRouter.post('/',authenticationJWT, postOrders)
 orderRouter.put('/', putOrders)
 orderRouter.delete('/', deleteOrders)
+orderRouter.get('/all', getAllOrders)

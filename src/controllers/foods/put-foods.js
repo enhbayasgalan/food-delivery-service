@@ -35,7 +35,8 @@ import { Foods } from "../../schemas/food.shema.js";
 
 export const putFoods = async (req, res) => {
   const { foodName, price, image, ingredients, category } = req.body;
-    const filter = { foodName };
+  const { id } = req.params
+    const filter = { _id:id };
     const UpdateData = {
         foodName,
         price,

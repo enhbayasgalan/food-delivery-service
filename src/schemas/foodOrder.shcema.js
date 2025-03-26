@@ -11,7 +11,14 @@ const foodOrderSchema = new mongoose.Schema({
     type: String,
     enum: ["PENDING", "CANCELLED", "DELIVERED"],
     require: true,
+    default : "PENDING"
   },
+  createdAt : {
+    type : Date,
+    require : true,
+    default : Date.now()
+  },
+  address: { type: String }
 });
 
 export const Order = mongoose.model("foodOrderSchema", foodOrderSchema);

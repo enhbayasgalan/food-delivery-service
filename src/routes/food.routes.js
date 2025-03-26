@@ -10,5 +10,5 @@ export const foodRouter = Router();
 foodRouter.get('/:category', getFoods)
 foodRouter.post('/', postFoods)
 // UPDATE FOOD ITEM
-foodRouter.put('/', putFoods)
-foodRouter.delete('/', deleteFoods)
+foodRouter.put('/:id', putFoods)
+foodRouter.delete('/:id', deleteFoods)
