@@ -3,13 +3,18 @@
 import { Order } from "../../schemas/foodOrder.shcema.js";
 
 export const putOrders = async (req, res) => {
-    const {user, totalPrice, status} = req.body
+    const {status} = req.body
 
-    const filter = {user, totalPrice, status}
+    const { id } = req.params
+
+
+    const filter = { _id:id}
     const UpdatedFoodOrderData = {
-        user,
-        totalPrice,
         status
+    }
+
+    if (!status) {
+        return res.status(400).send("status not found", status)
     }
 
     try {

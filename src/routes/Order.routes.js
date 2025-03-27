@@ -12,6 +12,6 @@ export const orderRouter = Router();
 
 orderRouter.get('/',authenticationJWT, getOrders)
 orderRouter.post('/',authenticationJWT, postOrders)
-orderRouter.put('/', putOrders)
+orderRouter.put('/:id', putOrders)
 orderRouter.delete('/', deleteOrders)
 orderRouter.get('/all', getAllOrders)
