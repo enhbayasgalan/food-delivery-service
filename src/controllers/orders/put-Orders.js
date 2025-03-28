@@ -3,12 +3,10 @@
 import { Order } from "../../schemas/foodOrder.shcema.js";
 
 export const putOrders = async (req, res) => {
-    const {status} = req.body
-
-    const { id } = req.params
+    const {status , id} = req.body
 
 
-    const filter = { _id:id}
+    const filter = { _id:{$in:id}}
     const UpdatedFoodOrderData = {
         status
     }
@@ -18,7 +16,7 @@ export const putOrders = async (req, res) => {
     }
 
     try {
-        const UpdatedFoodOrder = await Order.findOneAndUpdate(filter, UpdatedFoodOrderData, {new:true})    
+        const UpdatedFoodOrder = await Order.updateMany(filter, UpdatedFoodOrderData, {new:true})    
         if (!UpdatedFoodOrder) {
             return res.status(404).send("foodOrder items not found ")
         }
