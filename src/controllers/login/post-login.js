@@ -23,7 +23,12 @@ export const checkpassword = async (req, res) => {
       console.log(process.env.JWT_TOKEN_SECRET_KEY);
 
       const token = jsonwebtoken.sign(
-        { email: user.email, role: user.role, address: user.address },
+        {
+          email: user.email,
+          role: user.role,
+          address: user.address,
+          userId: user._id,
+        },
         process.env.JWT_TOKEN_SECRET_KEY
       );
       console.log(token);

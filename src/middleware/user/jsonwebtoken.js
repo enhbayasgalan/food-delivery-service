@@ -9,6 +9,9 @@ export const authenticationJWT = (req, res, next) => {
     const decoded = jsonwebtoken.verify(token, process.env.JWT_TOKEN_SECRET_KEY);
     req.userId = decoded.userId;
     console.log(decoded);
+    if (!decoded.userId) {
+      return res.status(500)
+    }
      
     next();
   } catch (error) {
